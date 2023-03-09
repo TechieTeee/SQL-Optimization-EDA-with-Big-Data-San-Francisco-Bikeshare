@@ -94,3 +94,12 @@ ORDER BY
   trip_count DESC
 LIMIT 2;
 
+
+--Trip w/ the Longest Duration
+--Organize by Trip I.D.
+--In the Month of March 2018
+SELECT MAX(duration_sec), trip_id
+FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
+WHERE start_date >= '2018-03-01' AND start_date < '2018-03-31'
+GROUP BY(trip_id)
+LIMIT 1;
