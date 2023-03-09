@@ -122,3 +122,12 @@ SELECT MAX(end_date) AS last_start, bike_number,
 FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
 WHERE end_date >= '2018-03-01' AND end_date < '2018-03-31'
 GROUP BY bike_number;
+
+
+--Organize Trips by Geolocations, Start Stations
+--In Month of March 2018
+SELECT start_station_geom, lat, lon,trip_id, short_name
+FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips` trips
+JOIN `bigquery-public-data.san_francisco_bikeshare.bikeshare_station_info` station_info
+ON trips.start_station_name = station_info.name
+WHERE start_date >= '2018-03-01' AND start_date < '2018-03-31';
