@@ -34,6 +34,17 @@ JOIN `bigquery-public-data.san_francisco_bikeshare.bikeshare_station_info` stati
 ON subquery.short_name = station_info.short_name;
 
 
+--Bikes w/ First Time Trips
+-- In Month of March 2018
+SELECT MIN(start_date) AS first_start, bike_number,
+       COUNT(bike_number) OVER () AS TotalFirstRides
+FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
+WHERE start_date >= '2018-03-01' AND start_date < '2018-03-31'
+GROUP BY bike_number;
+
+
+
+
 --Average Age of Bike Riders
 --In the Month of March 2018
 SELECT AVG(2018 - member_birth_year)
