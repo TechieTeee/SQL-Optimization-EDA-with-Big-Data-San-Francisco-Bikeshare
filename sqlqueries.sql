@@ -114,3 +114,11 @@ FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
 WHERE start_date >= '2018-03-01' AND start_date < '2018-03-31'
 GROUP BY(trip_id)
 LIMIT 1;
+
+--Bikes w/ Last Trips
+--In Month of March 2018
+SELECT MAX(end_date) AS last_start, bike_number,
+       COUNT(bike_number) OVER () AS TotalLastRides
+FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
+WHERE end_date >= '2018-03-01' AND end_date < '2018-03-31'
+GROUP BY bike_number;
