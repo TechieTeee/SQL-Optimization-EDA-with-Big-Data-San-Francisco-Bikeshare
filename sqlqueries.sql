@@ -66,7 +66,13 @@ ORDER BY
 LIMIT
   1;
 
-
-  
+--Busiest Hour of the Day
+--In the Month of March 2018
+  SELECT EXTRACT(HOUR FROM start_date) AS hour, COUNT(*) AS count
+FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
+WHERE start_date >= '2018-03-01' AND start_date < '2018-03-31'
+GROUP BY hour
+ORDER BY count DESC
+LIMIT 5;
   
 
