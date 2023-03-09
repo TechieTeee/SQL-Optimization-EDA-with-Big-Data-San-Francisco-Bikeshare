@@ -76,3 +76,21 @@ ORDER BY count DESC
 LIMIT 5;
   
 
+--Regions w/ the Most Trips
+--In March of 2018
+SELECT 
+  bikeshare_regions.region_id, 
+  bikeshare_regions.name, 
+  COUNT(bikeshare_trips.trip_id) AS trip_count
+FROM 
+  bigquery-public-data.san_francisco_bikeshare.bikeshare_trips
+  JOIN bigquery-public-data.san_francisco_bikeshare.bikeshare_regions
+  ON bikeshare_trips.start_station_id = bikeshare_regions.region_id
+WHERE start_date >= '2018-03-01' AND start_date < '2018-03-31'
+GROUP BY 
+  bikeshare_regions.region_id,
+  bikeshare_regions.name
+ORDER BY 
+  trip_count DESC
+LIMIT 2;
+
