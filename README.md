@@ -2,5 +2,5 @@
 
 ## SQL Optimization EDA-with Big-Data San Francisco Bikeshare
 - Experiment to Explore Optimizing SQL Queries and Effective Use of Compute Resources w/ Big Data from the San Francisco Bikeshare Program and GCP's BigQuery
-- (See Data Here)[https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset&q=san%20francisco%20ford%20gobike%20share]
+- [See Data Here](https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset&q=san%20francisco%20ford%20gobike%20share)
 - Then Visualized the Data in Looker
