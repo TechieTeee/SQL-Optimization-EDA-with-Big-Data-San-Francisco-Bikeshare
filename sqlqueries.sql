@@ -32,3 +32,37 @@ FROM (
 ) as subquery
 JOIN `bigquery-public-data.san_francisco_bikeshare.bikeshare_station_info` station_info
 ON subquery.short_name = station_info.short_name;
+
+
+--Average Age of Bike Riders
+--In the Month of March 2018
+SELECT AVG(2018 - member_birth_year)
+FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
+WHERE start_date >= '2018-03-01' AND start_date < '2018-03-31';
+
+
+--Most Common Journey
+--AKA Most Commom Combination of Start and End Destinations
+--In the Month of March 2018
+SELECT
+  start_station_id,
+  end_station_id,
+  start_station_name,
+  end_station_name,
+  COUNT(*) AS Trips
+FROM
+  `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
+WHERE
+  (start_station_id != end_station_id)
+AND
+start_date >= '2018-03-01' AND start_date < '2018-03-31'
+GROUP BY
+  start_station_id,
+  end_station_id,
+  start_station_name,
+  end_station_name
+ORDER BY
+  Trips DES;
+  
+  
+
