@@ -4,3 +4,4 @@
 - Experiment to Explore Optimizing SQL Queries and Effective Use of Compute Resources w/ Big Data from the San Francisco Bikeshare Program and GCP's BigQuery
 - [See Data Here](https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset&q=san%20francisco%20ford%20gobike%20share)
 - Then Visualized the Data in Looker
+![image](https://user-images.githubusercontent.com/100870737/224198531-d878a65d-a760-4635-b3f0-3e25efa8f152.png)
